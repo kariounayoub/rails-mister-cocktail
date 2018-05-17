@@ -1,11 +1,11 @@
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show]
-
   def index
     @cocktails = Cocktail.all
   end
 
   def show
+    @doses = Dose.where('cocktail_id = ?', @cocktail.id)
   end
 
   def new
@@ -22,8 +22,8 @@ class CocktailsController < ApplicationController
     end
   end
 
-  private
 
+  private
   def set_cocktail
     @cocktail = Cocktail.find(params[:id])
   end
@@ -31,5 +31,4 @@ class CocktailsController < ApplicationController
   def cocktail_params
     params.require(:cocktail).permit(:name, :doses)
   end
-
 end
