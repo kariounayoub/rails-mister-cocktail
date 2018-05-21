@@ -39,7 +39,7 @@ cocktails_name = ['Vanillabean Drink',
 
  cocktail = Cocktail.create(
     name:    cocktails_name[i - 1],
-    pictureurl: "https://source.unsplash.com/collection/1990254/#{i}"
+    photo: "https://source.unsplash.com/collection/1990254/#{i}"
   )
   Dose.create!(description: ['A handful', '1 part', '2 parts', '3 parts'].sample, cocktail_id: cocktail.id, ingredient: Ingredient.find((5..50).to_a.sample))
   Dose.create!(description: ['A handful', '1 part', '2 parts', '3 parts'].sample, cocktail_id: cocktail.id, ingredient: Ingredient.find((51..100).to_a.sample))
